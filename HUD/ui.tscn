@@ -2,6 +2,7 @@
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_02quj"]
 
+
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
