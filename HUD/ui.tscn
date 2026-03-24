@@ -2,7 +2,6 @@
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_02quj"]
 
-
 [node name="Control" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -14,31 +13,47 @@ grow_vertical = 2
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1153.0
 offset_bottom = 646.0
-color = Color(0.435294, 0, 0.286275, 0.529412)
+# Тёплый коричнево-оранжевый фон с лёгкой прозрачностью
+color = Color(0.6, 0.4, 0.2, 0.6)
 
 [node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
 layout_mode = 0
-offset_left = 111.0
-offset_top = 53.0
-offset_right = 1264.0
+offset_left = 100.0
+offset_top = 50.0
+offset_right = 1250.0
 offset_bottom = 700.0
-scale = Vector2(0.817886, 0.817886)
+scale = Vector2(0.85, 0.85)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 100
+theme_override_constants/separation = 60
 alignment = 1
 
 [node name="Button" type="Button" parent="ColorRect/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(512, 128)
+custom_minimum_size = Vector2(480, 120)
 layout_mode = 2
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 60
+# Тёплый зелёный цвет кнопки
+theme_override_colors/font_color = Color(1,1,1,1)
+theme_override_colors/bg_color = Color(0.2, 0.6, 0.2, 1)
 text = "START GAME"
 icon = SubResource("ViewportTexture_02quj")
+theme_override_constants/padding_left = 20
+theme_override_constants/padding_top = 10
+theme_override_constants/padding_right = 20
+theme_override_constants/padding_bottom = 10
 
 [node name="HSlider" type="HSlider" parent="ColorRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/fg_color = Color(0.6, 0.4, 0.2, 1)
+theme_override_colors/bg_color = Color(0.8, 0.7, 0.5, 1)
+custom_minimum_size = Vector2(400, 40)
 
 [node name="TextEdit" type="TextEdit" parent="ColorRect/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(2.08165e-12, 100)
+custom_minimum_size = Vector2(600, 150)
 layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_colors/font_color = Color(0.05, 0.2, 0.05, 1)  # тёмно-зелёный текст
+theme_override_colors/bg_color = Color(0.95, 0.9, 0.8, 0.8)  # светлый фон
+scroll_active = true
+wrap_enabled = true
