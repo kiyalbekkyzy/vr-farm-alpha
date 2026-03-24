@@ -1,0 +1,31 @@
+extends Node3D
+
+var xr_interface: XRInterface
+@onready var anim = $"farmer"/AnimationPlayer
+@onready var status_label = $HUD/StatusLabel
+
+func _ready():
+
+ xr_interface = XRServer.find_interface("OpenXR")
+
+ if xr_interface:
+  var success = xr_interface.initialize()
+
+  if success:
+   print("OpenXR initialised successfully")
+
+   DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
+   get_viewport().use_xr = true
+
+   var a = anim.get_animation("mixamo_com")
+   a.loop_mode = Animation.LOOP_LINEAR
+
+   anim.play("mixamo_com")
+   status_label.text = "Animation: ON"
+
+  else:
+   print("Failed to initialise OpenXR")
+   status_label.text = "VR: Failed"
+ else:
+  print("OpenXR interface not found")
+  status_label.text = "VR: Not Found"
