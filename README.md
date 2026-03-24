@@ -1,21 +1,22 @@
-# VR Cafe Simulator (Early Alpha)
+#VR Farm Simulator (Early Alpha)
 
 ## Project Description
 
-This project is an early alpha VR café simulation created using Godot and OpenXR.
+This project is an early alpha VR farming simulation created using Godot and OpenXR.
 
-The player can interact with objects and simulate pouring drinks into a cup.
+The player can interact with objects, collect vegetables, and simulate farming activities in VR.
 
 ---
 
 ## Idea and Goal
-
-The goal of the project is to explore VR interaction mechanics in a café environment.
+The goal of the project is to explore VR interaction mechanics in a farm environment.
 
 The player can:
 
-* grab objects
-* pour a drink into a cup
+* collect vegetables from fields
+* gather produce in a basket
+* explore a greenhouse with additional crops
+* interact with simple farm objects
 
 ---
 
@@ -23,23 +24,17 @@ The player can:
 
 * OpenXR setup
 * VR player with controllers
-* basic café environment
-* cup and teapot objects
-
-
----
-
-## Screenshots
-![Screenshot 1](screenshots/Screenshot%202026-03-17%20at%2020.19.04.png)
-![Screenshot 2](screenshots/Screenshot%202026-03-17%20at%2020.19.16.png)
-![Screenshot 3](screenshots/Screenshot%202026-03-17%20at%2020.19.47.png)
-
+* basic farm environment with fields and greenhouse
+* vegetable objects
+* basket for collecting vegetables
+* farmer character with basic animations
 
 ---
 
 ## Demonstration Video
-* https://youtube.com/shorts/DOtw2dJOU3w?feature=share
-* https://youtube.com/shorts/pxeoW_L3_bU?feature=share
+* https://youtu.be/2BHy8yqtARc?si=K5LaxisibJGkI0Vz
+* https://youtu.be/Q-Yb9vqCPMU?is=nR_cmhHKn1ACDoaS
+* https://youtube.com/shorts/GHKEMJ04R6s?is=lfSFZdXmDRD04enq
 
 
 ---
@@ -48,31 +43,28 @@ The player can:
 
 * VR scene setup with OpenXR
 * XR controllers
-* basic environment
-* object interaction
+* basic farm environment
+* vegetable objects to collect
+* basket object for collection
+* farmer animations
 
 ---
 
 ## To Be Done
 
-* pouring mechanic
-* liquid level system
-* UI and orders
-* sound effects
-* better interaction
-* optimization
+* more vegetables and crops
+* additional simple interactions
+* sound effects (farm sounds, picking sounds)
+* simple UI for collected vegetables
+* optimization and minor po
 
 ---
 
 ## Assets Credits
 
 * Godot XR tools
-* 3D models from Sketchfab
-* Music from Safari
+* 3D models 
+* Music 
 
-
-## Downloads
-
-Get the APK here: [VR Cafe Simulator v0.1-alpha](https://github.com/yoonoy/new-cafe/releases/download/v0.1-alpha/VR_Cafe_Simulator_v0.1-alpha.apk)
 
 
