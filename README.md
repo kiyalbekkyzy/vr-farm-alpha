@@ -1,4 +1,4 @@
-#VR Farm Simulator (Early Alpha)
+# VR Farm Simulator (Early Alpha)
 
 ## Project Description
 
