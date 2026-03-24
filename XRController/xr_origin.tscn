@@ -1,41 +1,92 @@
-[gd_scene load_steps=8 format=3 uid="uid://2aumxbq1dpaq"]
+[gd_scene load_steps=18 format=3 uid="uid://lmscpvmwh5np"]
 
-[ext_resource type="PackedScene" uid="uid://bq86r4yll8po" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_fullglove_low.tscn" id="1_wlkxd"]
-[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="2_ihgx8"]
-[ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="3_dwtp1"]
-[ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="4_3uccy"]
-[ext_resource type="PackedScene" uid="uid://xqimcf20s2jp" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_fullglove_low.tscn" id="4_8823d"]
-[ext_resource type="PackedScene" uid="uid://b6bk2pj8vbj28" path="res://addons/godot-xr-tools/functions/movement_turn.tscn" id="5_i2g4s"]
-[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="6_y6rk6"]
+[ext_resource type="Script" path="res://MainScene/Main.gd" id="1_2ijcr"]
+[ext_resource type="PackedScene" uid="uid://bvnth5kxaqpa1" path="res://MainScene/cozy_morning_in_a_cafe__3d_editor_challenge.glb" id="1_tl4cb"]
+[ext_resource type="PackedScene" uid="uid://2aumxbq1dpaq" path="res://XRController/xr_origin.tscn" id="2_fggay"]
+[ext_resource type="PackedScene" uid="uid://t8yxiy13nacd" path="res://pickableObjects/pickable_object.tscn" id="4_7jxxj"]
+[ext_resource type="PackedScene" uid="uid://1g7r8mwd7n3q" path="res://pickableObjects/pickable2.tscn" id="5_dsq76"]
+[ext_resource type="PackedScene" uid="uid://1rp86i26x4ft" path="res://pickableObjects/mug_-_cup.glb" id="6_hrfiw"]
+[ext_resource type="PackedScene" uid="uid://farmer_uid" path="res://character/farmer.glb" id="7_farmer"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="8_8w3ow"]
+[ext_resource type="PackedScene" uid="uid://tpdxmqft7w7k" path="res://HUD/control.tscn" id="9_qejb8"]
+[ext_resource type="AudioStream" uid="uid://new_music_uid" path="res://music/farmer_theme.mp3" id="10_ocqjt"]
 
-[node name="XROrigin3D" type="XROrigin3D"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5koou"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
-[node name="XRCamera3D" type="XRCamera3D" parent="."]
+[sub_resource type="Sky" id="Sky_abju2"]
+sky_material = SubResource("ProceduralSkyMaterial_5koou")
 
-[node name="left" type="XRController3D" parent="."]
-tracker = &"left_hand"
+[sub_resource type="Environment" id="Environment_x2532"]
+background_mode = 2
+sky = SubResource("Sky_abju2")
+tonemap_mode = 2
+glow_enabled = true
 
-[node name="LeftHand" parent="left" instance=ExtResource("1_wlkxd")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_1qnov"]
+size = Vector3(1200, 0.1, 1200)
 
-[node name="FunctionPickup" parent="left" instance=ExtResource("2_ihgx8")]
+[sub_resource type="BoxMesh" id="BoxMesh_5xkvt"]
+size = Vector3(1200, 0.1, 1200)
 
-[node name="MovementDirect" parent="left" instance=ExtResource("3_dwtp1")]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_fgtnn"]
+height = 0.348
+radius = 18.682
 
-[node name="FunctionPointer" parent="left" instance=ExtResource("4_3uccy")]
-show_laser = 2
-laser_length = 1
+[sub_resource type="CylinderMesh" id="CylinderMesh_kb3h2"]
+bottom_radius = 18.72
 
-[node name="right" type="XRController3D" parent="."]
-tracker = &"right_hand"
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_2ijcr")
 
-[node name="RightHand" parent="right" instance=ExtResource("4_8823d")]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."] 
+environment = SubResource("Environment_x2532")
 
-[node name="FunctionPickup" parent="right" instance=ExtResource("2_ihgx8")]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."] 
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0) 
+shadow_enabled = true
 
-[node name="MovementTurn" parent="right" instance=ExtResource("5_i2g4s")]
+[node name="mainScene" parent="." instance=ExtResource("1_tl4cb")]
+transform = Transform3D(200, 0, 0, 0, 200, 0, 0, 0, 200, 78.0045, -71.1038, 119.506)
 
-[node name="FunctionPointer" parent="right" instance=ExtResource("4_3uccy")]
-show_laser = 2
-laser_length = 1
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
 
-[node name="PlayerBody" parent="." instance=ExtResource("6_y6rk6")]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -283.886, -58.9921, -416.8)
+shape = SubResource("BoxShape3D_1qnov")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0582428, 0)
+mesh = SubResource("BoxMesh_5xkvt")
+
+[node name="XROrigin3D" parent="." instance=ExtResource("2_fggay")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10.9404, 78.338, -219.918)
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 63.8369, 74.8946, -214.905)
+shape = SubResource("CylinderShape3D_fgtnn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.00793, 0.60902)
+mesh = SubResource("CylinderMesh_kb3h2")
+
+[node name="PickableObject" parent="." instance=ExtResource("4_7jxxj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.49703, 79.9079, -239.996)
+
+[node name="PickableObject2" parent="." instance=ExtResource("5_dsq76")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.27365, 79.9629, -233.002)
+
+[node name="cup" parent="." instance=ExtResource("6_hrfiw")]
+transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 12.9748, 80.5566, -243.298)
+
+[node name="farmer" parent="." instance=ExtResource("7_farmer")]
+transform = Transform3D(2.09892, 0.136531, -9.77629, -0.155222, 9.99823, 0.106305, 9.77601, 0.129437, 2.10067, -166.429, -36.991, -344.165)
+
+[node name="Skeleton3D" parent="farmer/rig" index="0"]
+# Все кости можно оставить как есть или настроить под farmer, если нужно
+
+[node name="AudioPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("10_ocqjt")
